@@ -17,7 +17,7 @@
 
     .nav {
         height: 50px;
-        @include m.d-flex(start, start);
+        @include m.d-flex(start, center);
 
         &__title {
             height: 100%;
@@ -35,6 +35,65 @@
                 }
 
                 @extend %hover-black;
+            }
+        }
+
+        &__links {
+            flex-grow: 1;
+
+            .list {
+                @include m.d-flex(start, center, nowrap, row, min(100px, 5vw), 0);
+                padding: 0 0 0 min(100px, 5vw);
+
+                &__item {
+                    &-link {
+                        font-size: 22px;
+                        font-weight: 400;
+                        color: v.$color_white;
+
+                        @extend %hover-black;
+                    }
+                }
+            }
+
+            @media (max-width: v.$media_md) {
+                .list {
+                    @include m.d-flex(center, center, nowrap, row, min(100px, 5vw), 0);
+                    padding: 0 0 0 0;
+                }
+            }
+        }
+
+        .covid {
+            height: 100%;
+            @include m.d-flex(center, center);
+            padding: 0 30px;
+
+            border: {
+                left: 1px solid v.$color_white;
+                right: 1px solid v.$color_white;
+            }
+
+            &__link {
+                font-weight: 700;
+                font-size: 16px;
+                color: v.$color_white;
+
+                @extend %hover-black;
+            }
+        }
+
+        .globe {
+            width: 90px;
+            @include m.d-flex(center, center);
+
+            &__link {
+                &-icon {
+                    width: 27px;
+                    height: 28px;
+                    fill: v.$color_white;
+                    @extend %hover-black-icon;
+                }
             }
         }
     }
